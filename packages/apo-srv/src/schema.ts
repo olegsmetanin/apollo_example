@@ -2,7 +2,9 @@ export const schema = `
   type Query {
     hello(name: String): String
     books(page: Int): [Book!]!
+    book(id: ID!): Book
     authors(page: Int): [Author!]!
+    author(id: ID!): Author
     comments(book_id: ID!, page: Int): [Comment!]!
   }
 
