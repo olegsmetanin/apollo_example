@@ -5,8 +5,11 @@ import filter from 'lodash/filter'
 export const resolvers = {
   Query: {
     hello: (_, args) => `Hello ${args.name || 'World'}!`,
-    books: (page, args) => filter(books, (book) => true ),
-    authors: (page, args) => filter(authors, (author) => true ),
-    comments: (book_id, page, args) => filter(comments, (comment) => comment.book_id === book_id),
+    books: (_, {page}) => filter(books, (book) => true ),
+    authors: (_, {page}) => filter(authors, (author) => true ),
+    comments: (_, {book_id, page}) => {
+      console.log('book_id', book_id, page)
+      return filter(comments, (comment) => comment.book_id == book_id)
+    }
   },
 }
