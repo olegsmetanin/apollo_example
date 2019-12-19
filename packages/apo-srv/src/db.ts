@@ -1,37 +1,32 @@
+import * as faker from 'faker/locale/en'
 
-export var books = [
-  {
-    id: 1,
-    title: 'book title 1',
-    author_id: 1,
-  },
-  {
-    id: 2,
-    title: 'book title 2',
-    author_id: 2,
-  },
-]
+export var books = []
+for (var i = 0; i<100; i++) {
+  books.push({
+    id: i,
+    title: faker.lorem.sentence(),
+    author_id: faker.random.number(100)
+  })
+}
 
-export var authors = [
-  {
-    id: 1,
-    name: 'autor1'
-  },
-  {
-    id: 2,
-    name: 'autor2'
-  }
-]
+export var authors = []
+for (var i = 0; i<100; i++) {
+  authors.push({
+    id: i,
+    name: faker.name.findName(),
+  })
+}
 
-export var comments = [
-  {
-    id: 1,
-    book_id: 1,
-    content: 'book1 comment1'
-  },
-  {
-    id: 2,
-    book_id: 1,
-    content: 'book1 comment2'
-  }
-]
+export var comments = []
+for (var i = 0; i<100; i++) {
+  comments.push({
+    id: i,
+    book_id: faker.random.number(100),
+    content: faker.lorem.text(),
+  })
+}
+
+// console.log(books)
+// console.log(authors)
+// console.log(comments)
+

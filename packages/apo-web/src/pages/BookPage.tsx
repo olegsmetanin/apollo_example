@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Layout from 'antd/es/layout'
-import { Books } from '../Books'
+import { Book } from '../Book'
 import { SideNav } from '../common/SideNav'
 
 const { Header, Footer, Sider, Content } = Layout
@@ -9,16 +9,16 @@ export interface IBooksPageProps {
   className?: string
 }
 
-export const BooksPage: React.FunctionComponent<IBooksPageProps> = ({ children, ...props }) => {
+export const BookPage: React.FunctionComponent<IBooksPageProps> = ({ children, ...props }) => {
   return (
     <Layout>
       <Sider breakpoint="lg" collapsedWidth="0">
         <SideNav />
       </Sider>
       <Layout>
-        <Header>Книги</Header>
+        <Header>Книга</Header>
         <Content>
-          <Books />
+          <Book />
         </Content>
         {/* <Footer>Footer</Footer> */}
       </Layout>

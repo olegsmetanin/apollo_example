@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 
 import { MainPage } from './pages/MainPage'
-import { BooksPage } from './pages/BooksPage'
+import { BookListPage } from './pages/BookListPage'
+import { BookPage } from './pages/BookPage'
 import { AuthorsPage } from './pages/AuthorsPage'
 
 const client = new ApolloClient({ uri: 'http://localhost:4000' })
@@ -18,7 +19,10 @@ const App: React.FC = () => {
           <MainPage />
         </Route>
         <Route exact path="/books">
-          <BooksPage />
+          <BookListPage />
+        </Route>
+        <Route exact path="/book/:id">
+          <BookPage />
         </Route>
         <Route exact path="/authors">
           <AuthorsPage />
