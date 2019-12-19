@@ -14,3 +14,34 @@ a.selected {
 .ant-layout-sider-zero-width-trigger {
   top: 0;
 }
+
+.layout {
+  margin-top: 50px;
+  margin-left: 200px;
+  padding: 0 24px 24px;
+}
+
+.breadcrumb {
+  margin: 16px 0;
+}
+
+.content {
+  background: #fff;
+  padding: 12px 24px;
+  margin: 0px;
+  min-height: 280px;
+}
+
+.sider {
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 45px;
+}
+
+.header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}

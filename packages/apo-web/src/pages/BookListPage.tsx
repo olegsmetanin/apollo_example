@@ -1,9 +1,13 @@
 import * as React from 'react'
 import Layout from 'antd/es/layout'
+import { NavLink } from 'react-router-dom'
+import Breadcrumb from 'antd/es/breadcrumb'
 import { BookList } from '../BookList'
 import { SideNav } from '../common/SideNav'
+import { Header } from '../common/Header'
+import { Breadcrumbs } from '../common/Breadcrumbs'
 
-const { Header, Footer, Sider, Content } = Layout
+const { Footer, Sider, Content } = Layout
 
 export interface IBooksPageProps {
   className?: string
@@ -12,15 +16,21 @@ export interface IBooksPageProps {
 export const BookListPage: React.FunctionComponent<IBooksPageProps> = ({ children, ...props }) => {
   return (
     <Layout>
-      <Sider breakpoint="lg" collapsedWidth="0">
-        <SideNav />
-      </Sider>
+      <Header className="header" />
       <Layout>
-        <Header>Книги</Header>
-        <Content>
-          <BookList />
-        </Content>
-        {/* <Footer>Footer</Footer> */}
+        <Sider breakpoint="lg" collapsedWidth="0" className="sider">
+          <SideNav />
+        </Sider>
+        <Layout className="layout">
+          <Breadcrumbs>
+            <NavLink to="/">Библиотека</NavLink>
+            <>Книги</>
+          </Breadcrumbs>
+          <Content className="content">
+            <BookList />
+          </Content>
+          {/* <Footer>Footer</Footer> */}
+        </Layout>
       </Layout>
     </Layout>
   )
