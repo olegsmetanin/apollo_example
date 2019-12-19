@@ -10,99 +10,13 @@ export interface IBookListProps {
   className?: string
 }
 
-interface IBook {
-  id: number
-  title: string
-  img: string
-}
-
-interface BookData {
-  books: IBook[]
-}
-
-interface BooksVars {
-  page: number
-}
-
-const GET_BOOKS = gql`
-  query {
-    books(page: 1) {
-      id
-      title
-      img
-    }
-  }
-`
-// const GET_BOOKS =
-
-const list = [
-  {
-    loading: false,
-    id: 12,
-    name: 'Book1'
-  },
-  {
-    loading: false,
-    id: 13,
-    name: 'Book2'
-  }
-]
+import { IBook, BookData, BooksVars, GET_BOOKS } from '../queries/books'
 
 export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ...props }) => {
   const { loading, data } = useQuery<BookData, BooksVars>(GET_BOOKS)
 
   console.log({ loading, data })
-  // getData = callback => {
-  //   reqwest({
-  //     url: fakeDataUrl,
-  //     type: 'json',
-  //     method: 'get',
-  //     contentType: 'application/json',
-  //     success: res => {
-  //       callback(res)
-  //     }
-  //   })
-  // }
 
-  // onLoadMore = () => {
-  //   this.setState({
-  //     loading: true,
-  //     list: this.state.data.concat([...new Array(count)].map(() => ({ loading: true, name: {} })))
-  //   })
-  //   this.getData(res => {
-  //     const data = this.state.data.concat(res.results)
-  //     this.setState(
-  //       {
-  //         data,
-  //         list: data,
-  //         loading: false
-  //       },
-  //       () => {
-  //         // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
-  //         // In real scene, you can using public method of react-virtualized:
-  //         // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
-  //         window.dispatchEvent(new Event('resize'))
-  //       }
-  //     )
-  //   })
-  // }
-
-  // const { initLoading, loading, list } = this.state
-  // const loadMore =
-  //   !initLoading && !loading ? (
-  //     <div
-  //       style={{
-  //         textAlign: 'center',
-  //         marginTop: 12,
-  //         height: 32,
-  //         lineHeight: '32px'
-  //       }}
-  //     >
-  //       <Button onClick={() => console.log('LoadMore') /* this.onLoadMore */}>
-  //         loading more
-  //       </Button>
-  //     </div>
-  //   ) : null
   return (
     <Row>
       <Col>
@@ -137,3 +51,55 @@ export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ..
     </Row>
   )
 }
+
+// getData = callback => {
+//   reqwest({
+//     url: fakeDataUrl,
+//     type: 'json',
+//     method: 'get',
+//     contentType: 'application/json',
+//     success: res => {
+//       callback(res)
+//     }
+//   })
+// }
+
+// onLoadMore = () => {
+//   this.setState({
+//     loading: true,
+//     list: this.state.data.concat([...new Array(count)].map(() => ({ loading: true, name: {} })))
+//   })
+//   this.getData(res => {
+//     const data = this.state.data.concat(res.results)
+//     this.setState(
+//       {
+//         data,
+//         list: data,
+//         loading: false
+//       },
+//       () => {
+//         // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
+//         // In real scene, you can using public method of react-virtualized:
+//         // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
+//         window.dispatchEvent(new Event('resize'))
+//       }
+//     )
+//   })
+// }
+
+// const { initLoading, loading, list } = this.state
+// const loadMore =
+//   !initLoading && !loading ? (
+//     <div
+//       style={{
+//         textAlign: 'center',
+//         marginTop: 12,
+//         height: 32,
+//         lineHeight: '32px'
+//       }}
+//     >
+//       <Button onClick={() => console.log('LoadMore') /* this.onLoadMore */}>
+//         loading more
+//       </Button>
+//     </div>
+//   ) : null

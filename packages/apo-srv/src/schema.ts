@@ -10,6 +10,7 @@ export const schema = `
 
   type Book {
     id: ID!
+    author_id: ID!
     title: String
     img: String
   }
