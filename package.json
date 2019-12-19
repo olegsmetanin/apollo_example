@@ -12,8 +12,8 @@
     "apo-web:build": "lerna run --scope apo-web build",
     "apo-srv:build": "lerna run --scope apo-srv build",
     "all:build": "lerna run build --stream --parallel",
-    "apo-web:start": "lerna run --scope apo-web start",
-    "apo-srv:start": "lerna run --scope apo-srv start",
+    "apo-web:start": "lerna run --scope apo-web start --stream",
+    "apo-srv:start": "lerna run --scope apo-srv start --stream",
     "apo-e2e:run": "lerna run --scope apo-e2e start",
     "all:start": "lerna run start --stream --parallel"
   },
