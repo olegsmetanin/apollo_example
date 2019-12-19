@@ -1,27 +1,31 @@
-import * as React from 'react'
-import Row from 'antd/es/row'
-import Col from 'antd/es/col'
-import { Descriptions, Badge } from 'antd'
-import { useQuery } from '@apollo/react-hooks'
 import './book.css'
-import { IBookData, BookVars, GET_BOOK } from '../queries/book'
-import { IAuthorData, AuthorVars, GET_AUTHOR } from '../queries/author'
+
+import * as React from 'react'
+
+import { AuthorVars, GET_AUTHOR, IAuthorData } from '../queries/author'
+import { Badge, Descriptions } from 'antd'
+import { BookVars, GET_BOOK, IBook, IBookData } from '../queries/book'
+
+import Col from 'antd/es/col'
+import Row from 'antd/es/row'
+import { useQuery } from '@apollo/react-hooks'
 
 export interface IBookProps {
   className?: string
   id?: string
 }
 
-export const Book: React.FunctionComponent<IBookProps> = ({ children, ...props }) => {
+export const Author: React.FunctionComponent<IBookProps> = ({ children, ...props }) => {
   const { id } = props
 
   const { loading, data } = useQuery<IBookData, BookVars>(GET_BOOK, { variables: { id } })
-  const { author_id, title, img } = data?.book
+  if (!data) return <div>Loading</div>
+  const { author_id, title, img } = data.book as IBook
 
   const { loading: authorLoading, data: authorData } = useQuery<IAuthorData, AuthorVars>(
     GET_AUTHOR,
     {
-      variables: { id: author_id }
+      variables: { id: String(author_id) }
     }
   )
 

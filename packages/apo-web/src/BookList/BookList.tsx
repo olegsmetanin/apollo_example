@@ -1,16 +1,17 @@
 import * as React from 'react'
-import Row from 'antd/es/row'
+
+import { Avatar, Button, List, Skeleton } from 'antd'
+import { BookData, BooksVars, GET_BOOKS, IBook } from '../queries/books'
+
 import Col from 'antd/es/col'
-import { List, Avatar, Button, Skeleton } from 'antd'
 import { Link } from 'react-router-dom'
-import { useQuery } from '@apollo/react-hooks'
+import Row from 'antd/es/row'
 import gql from 'graphql-tag'
+import { useQuery } from '@apollo/react-hooks'
 
 export interface IBookListProps {
   className?: string
 }
-
-import { IBook, BookData, BooksVars, GET_BOOKS } from '../queries/books'
 
 export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ...props }) => {
   const { loading, data } = useQuery<BookData, BooksVars>(GET_BOOKS)
