@@ -2,6 +2,7 @@ import * as React from 'react'
 import Layout from 'antd/es/layout'
 import { Book } from '../Book'
 import { SideNav } from '../common/SideNav'
+import get from 'lodash/get'
 
 const { Header, Footer, Sider, Content } = Layout
 
@@ -10,15 +11,17 @@ export interface IBooksPageProps {
 }
 
 export const BookPage: React.FunctionComponent<IBooksPageProps> = ({ children, ...props }) => {
+  const id = get(props, 'match.params.id')
+
   return (
     <Layout>
       <Sider breakpoint="lg" collapsedWidth="0">
         <SideNav />
       </Sider>
       <Layout>
-        <Header>Книга</Header>
+        <Header>Книга {id}</Header>
         <Content>
-          <Book />
+          <Book id={id} />
         </Content>
         {/* <Footer>Footer</Footer> */}
       </Layout>

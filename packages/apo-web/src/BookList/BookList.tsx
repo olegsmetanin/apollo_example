@@ -3,11 +3,34 @@ import Row from 'antd/es/row'
 import Col from 'antd/es/col'
 import { List, Avatar, Button, Skeleton } from 'antd'
 import { Link } from 'react-router-dom'
+import { useQuery } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
 
 export interface IBookListProps {
   className?: string
 }
 
+interface IBook {
+  id: number
+  title: String
+}
+
+interface BookData {
+  books: IBook[]
+}
+
+interface BooksVars {
+  page: number
+}
+
+const GET_BOOKS = gql`
+  query {
+    books(page: 1) {
+      id
+      title
+    }
+  }
+`
 // const GET_BOOKS =
 
 const list = [
@@ -24,6 +47,9 @@ const list = [
 ]
 
 export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ...props }) => {
+  const { loading, data } = useQuery<BookData, BooksVars>(GET_BOOKS)
+
+  console.log({ loading, data })
   // getData = callback => {
   //   reqwest({
   //     url: fakeDataUrl,
@@ -80,20 +106,20 @@ export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ..
       <Col>
         <List
           className="books-loadmore-list"
-          loading={false}
+          loading={loading}
           itemLayout="horizontal"
           // loadMore={loadMore}
-          dataSource={list}
+          dataSource={data?.books}
           renderItem={item => (
             <List.Item
               actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
             >
-              <Skeleton avatar title={false} loading={item.loading} active>
+              <Skeleton avatar title={false} active>
                 <List.Item.Meta
                   avatar={
                     <Avatar src="https://images-na.ssl-images-amazon.com/images/I/61-uFOBDLDL.jpg" />
                   }
-                  title={<Link to={`/book/${item.id}`}>{item.name}</Link>}
+                  title={<Link to={`/book/${item.id}`}>{item.title}</Link>}
                   description="Ant Design, a design language for background applications, is refined by Ant UED Team"
                 />
                 <div>content</div>

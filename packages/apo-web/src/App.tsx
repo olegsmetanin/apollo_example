@@ -21,9 +21,7 @@ const App: React.FC = () => {
         <Route exact path="/books">
           <BookListPage />
         </Route>
-        <Route exact path="/book/:id">
-          <BookPage />
-        </Route>
+        <Route path="/book/:id" component={BookPage} />
         <Route exact path="/authors">
           <AuthorsPage />
         </Route>
