@@ -7,5 +7,9 @@ export interface IBookProps {
 }
 
 export const Book: React.FunctionComponent<IBookProps> = ({ children, ...props }) => {
-  return <>Книга</>
+  return (
+    <Row>
+      <Col>Книга</Col>
+    </Row>
+  )
 }

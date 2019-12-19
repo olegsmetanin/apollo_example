@@ -2,6 +2,7 @@ import * as React from 'react'
 import Row from 'antd/es/row'
 import Col from 'antd/es/col'
 import { List, Avatar, Button, Skeleton } from 'antd'
+import { Link } from 'react-router-dom'
 
 export interface IBookListProps {
   className?: string
@@ -12,10 +13,12 @@ export interface IBookListProps {
 const list = [
   {
     loading: false,
+    id: 12,
     name: 'Book1'
   },
   {
     loading: false,
+    id: 13,
     name: 'Book2'
   }
 ]
@@ -90,7 +93,7 @@ export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ..
                   avatar={
                     <Avatar src="https://images-na.ssl-images-amazon.com/images/I/61-uFOBDLDL.jpg" />
                   }
-                  title={<a href="https://ant.design">{item.name}</a>}
+                  title={<Link to={`/book/${item.id}`}>{item.name}</Link>}
                   description="Ant Design, a design language for background applications, is refined by Ant UED Team"
                 />
                 <div>content</div>
