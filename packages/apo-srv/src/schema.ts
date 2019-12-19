@@ -15,7 +15,7 @@ export const schema = `
 
   type Author {
     id: ID!
-    title: String
+    name: String
   }
 
   type Comment {
@@ -24,4 +24,4 @@ export const schema = `
     content: String
   }
 
-`
+`;
