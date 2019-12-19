@@ -5,7 +5,8 @@ for (var i = 0; i<100; i++) {
   books.push({
     id: i,
     title: faker.lorem.sentence(),
-    author_id: faker.random.number(100)
+    author_id: faker.random.number(100),
+    img: faker.image.abstract()
   })
 }
 
@@ -14,6 +15,7 @@ for (var i = 0; i<100; i++) {
   authors.push({
     id: i,
     name: faker.name.findName(),
+    img: faker.internet.avatar()
   })
 }
 
