@@ -11,11 +11,13 @@ export const schema = `
   type Book {
     id: ID!
     title: String
+    img: String
   }
 
   type Author {
     id: ID!
     name: String
+    img: String
   }
 
   type Comment {
