@@ -1,0 +1,11 @@
+.card {
+  display: flex;
+  padding: 10px;
+}
+
+.card--left-block {
+}
+
+.card--right-block {
+  padding-left: 20px;
+}
