@@ -1,39 +1,33 @@
 {
-  "name": "antd-demo-ts",
-  "version": "0.1.0",
+  "name": "apo",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0",
-    "typescript": "~3.7.2"
-  },
+  "workspaces": [
+    "packages/apo-srv",
+    "packages/apo-web"
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "lerna": "lerna",
+    "bootstrap": "lerna bootstrap",
+    "bootstrap:start": "lerna bootstrap && cp ./packages/apo-srv/.env.development ./packages/apo-srv/.env",
+    "apo-web:build": "lerna run --scope apo-web build",
+    "apo-srv:build": "lerna run --scope apo-srv build",
+    "all:build": "lerna run build --stream --parallel",
+    "apo-web:start": "lerna run --scope apo-web start",
+    "apo-srv:start": "lerna run --scope apo-api start",
+    "apo-e2e:run": "lerna run --scope apo-e2e start",
+    "all:start": "lerna run start --stream --parallel"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "cross-env": "6.0.3",
+    "husky": "^3.1.0",
+    "lerna": "3.14.1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run --concurrency 1 --stream precommit"
+    }
+  },
+  "dependencies": {
+    "tslint": "^5.20.1"
   }
 }

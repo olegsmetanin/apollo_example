@@ -2,5 +2,6 @@
 
 ```
 yarn
-yarn start
+yarn bootstrap
+yarn all:dev
 ```
