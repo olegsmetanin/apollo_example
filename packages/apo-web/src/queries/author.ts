@@ -7,7 +7,7 @@ export interface IAuthor {
 }
 
 export interface IAuthorData {
-  author?: IAuthor
+  author: IAuthor
 }
 
 export interface AuthorVars {

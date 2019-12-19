@@ -1,10 +1,12 @@
-import * as React from 'react'
-import Row from 'antd/es/row'
-import Col from 'antd/es/col'
-import { useQuery } from '@apollo/react-hooks'
-import { IAuthorData, AuthorVars, GET_AUTHOR } from '../queries/author'
-
 import './author.css'
+
+import * as React from 'react'
+
+import { AuthorVars, GET_AUTHOR, IAuthor, IAuthorData } from '../queries/author'
+
+import Col from 'antd/es/col'
+import Row from 'antd/es/row'
+import { useQuery } from '@apollo/react-hooks'
 
 export interface IAuthorProps {
   className?: string
@@ -15,7 +17,7 @@ export const Author: React.FunctionComponent<IAuthorProps> = ({ children, ...pro
   const { id } = props
 
   const { loading, data } = useQuery<IAuthorData, AuthorVars>(GET_AUTHOR, { variables: { id } })
-  // const { name, img } = data?.author
+  const { name, img } = data?.author as IAuthor
 
   console.log({ loading, data })
 
@@ -24,10 +26,10 @@ export const Author: React.FunctionComponent<IAuthorProps> = ({ children, ...pro
       <Col>
         <div className="card">
           <div className="card--left-block">
-            <img src={data?.author.img} width="480" height={640} />
+            <img src={img} width="480" height={640} />
           </div>
           <div className="card--right-block">
-            <h1>{data?.author.name}</h1>
+            <h1>{name}</h1>
             <div>Книги: </div>
           </div>
         </div>
