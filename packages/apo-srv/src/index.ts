@@ -10,6 +10,5 @@ const options = {
   cors: true,
   port: 4000,
   endpoint: '/graphql',
-  // playground: '/graphql-cli'
 }
 server.start(() => console.log('Server is running on http://localhost:4000'))
