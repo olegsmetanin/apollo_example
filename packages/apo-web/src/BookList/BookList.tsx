@@ -12,7 +12,8 @@ export interface IBookListProps {
 
 interface IBook {
   id: number
-  title: String
+  title: string
+  img: string
 }
 
 interface BookData {
@@ -28,6 +29,7 @@ const GET_BOOKS = gql`
     books(page: 1) {
       id
       title
+      img
     }
   }
 `
@@ -110,22 +112,26 @@ export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ..
           itemLayout="horizontal"
           // loadMore={loadMore}
           dataSource={data?.books}
-          renderItem={item => (
-            <List.Item
-              actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
-            >
-              <Skeleton avatar title={false} active>
-                <List.Item.Meta
-                  avatar={
-                    <Avatar src="https://images-na.ssl-images-amazon.com/images/I/61-uFOBDLDL.jpg" />
-                  }
-                  title={<Link to={`/book/${item.id}`}>{item.title}</Link>}
-                  description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                />
-                <div>content</div>
-              </Skeleton>
-            </List.Item>
-          )}
+          renderItem={(item: IBook) => {
+            console.log({ item })
+            return (
+              <List.Item
+                actions={[
+                  <a key="list-loadmore-edit">edit</a>,
+                  <a key="list-loadmore-more">more</a>
+                ]}
+              >
+                <Skeleton avatar title={false} loading={loading} active>
+                  <List.Item.Meta
+                    avatar={item?.img ? <Avatar src={item.img} /> : null}
+                    title={<Link to={`/book/${item.id}`}>{item.title}</Link>}
+                    description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                  />
+                  <div>content</div>
+                </Skeleton>
+              </List.Item>
+            )
+          }}
         />
       </Col>
     </Row>
