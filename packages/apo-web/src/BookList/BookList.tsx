@@ -1,19 +1,19 @@
 import * as React from 'react'
 import Row from 'antd/es/row'
 import Col from 'antd/es/col'
-import { List, Avatar, Button, Skeleton } from 'antd'
+import { List, Avatar, Skeleton } from 'antd'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
-import gql from 'graphql-tag'
+
+import { BookListData, BookListVars, GET_BOOK_LIST } from '../queries/books'
+import { IBook } from '../queries/book'
 
 export interface IBookListProps {
   className?: string
 }
 
-import { IBook, BookData, BooksVars, GET_BOOKS } from '../queries/books'
-
 export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ...props }) => {
-  const { loading, data } = useQuery<BookData, BooksVars>(GET_BOOKS)
+  const { loading, data } = useQuery<BookListData, BookListVars>(GET_BOOK_LIST)
 
   console.log({ loading, data })
 
@@ -29,12 +29,7 @@ export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ..
           renderItem={(item: IBook) => {
             console.log({ item })
             return (
-              <List.Item
-                actions={[
-                  <a key="list-loadmore-edit">edit</a>,
-                  <a key="list-loadmore-more">more</a>
-                ]}
-              >
+              <List.Item>
                 <Skeleton avatar title={false} loading={loading} active>
                   <List.Item.Meta
                     avatar={item?.img ? <Avatar src={item.img} /> : null}

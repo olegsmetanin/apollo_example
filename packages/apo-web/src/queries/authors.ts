@@ -1,9 +1,5 @@
 import gql from 'graphql-tag'
-
-export interface IAuthor {
-  id: number
-  name: string
-}
+import { IAuthor } from './author'
 
 export interface AuthorData {
   authors: IAuthor[]

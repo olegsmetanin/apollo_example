@@ -1,7 +1,7 @@
 export const schema = `
   type Query {
     hello(name: String): String
-    books(page: Int): [Book!]!
+    books(page: Int, author_id: ID): [Book!]!
     book(id: ID!): Book
     authors(page: Int): [Author!]!
     author(id: ID!): Author
@@ -11,6 +11,7 @@ export const schema = `
   type Book {
     id: ID!
     author_id: ID!
+    author: Author
     title: String
     img: String
   }
@@ -27,4 +28,4 @@ export const schema = `
     content: String
   }
 
-`;
+`

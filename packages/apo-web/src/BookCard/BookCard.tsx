@@ -1,32 +1,23 @@
 import * as React from 'react'
 import Row from 'antd/es/row'
 import Col from 'antd/es/col'
-import { Descriptions, Badge } from 'antd'
 import { useQuery } from '@apollo/react-hooks'
 import './book.css'
 import { IBookData, BookVars, GET_BOOK } from '../queries/book'
-import { IAuthorData, AuthorVars, GET_AUTHOR } from '../queries/author'
+// import { IAuthorData, AuthorVars, GET_AUTHOR } from '../queries/author'
+// import { Link } from 'react-router-dom'
 
-export interface IBookProps {
+export interface IBookCardProps {
   className?: string
   id?: string
 }
 
-export const Book: React.FunctionComponent<IBookProps> = ({ children, ...props }) => {
+export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ...props }) => {
   const { id } = props
 
   const { loading, data } = useQuery<IBookData, BookVars>(GET_BOOK, { variables: { id } })
-  const { author_id, title, img } = data?.book
-
-  const { loading: authorLoading, data: authorData } = useQuery<IAuthorData, AuthorVars>(
-    GET_AUTHOR,
-    {
-      variables: { id: author_id }
-    }
-  )
-
+  const { title, img } = data?.book
   console.log({ loading, data })
-  console.log({ authorLoading, authorData })
 
   return (
     <Row>
@@ -37,7 +28,7 @@ export const Book: React.FunctionComponent<IBookProps> = ({ children, ...props }
           </div>
           <div className="card--right-block">
             <h1>{title}</h1>
-            <h2>Автор</h2>
+            <div>{/* Автор: <Link to={`/author/${author_id}`}>{author.name}</Link> */}</div>
           </div>
         </div>
       </Col>

@@ -1,20 +1,15 @@
 import gql from 'graphql-tag'
+import { IBook } from './book'
 
-export interface IBook {
-  id: number
-  title: string
-  img: string
-}
-
-export interface BookData {
+export interface BookListData {
   books: IBook[]
 }
 
-export interface BooksVars {
+export interface BookListVars {
   page: number
 }
 
-export const GET_BOOKS = gql`
+export const GET_BOOK_LIST = gql`
   query {
     books(page: 1) {
       id

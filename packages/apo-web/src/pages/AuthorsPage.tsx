@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Layout from 'antd/es/layout'
-import { Authors } from '../Authors'
+// import { Authors } from '../Authors'
 import { SideNav } from '../common/SideNav'
 
 const { Header, Footer, Sider, Content } = Layout
@@ -17,9 +17,7 @@ export const AuthorsPage: React.FunctionComponent<IAuthorsPageProps> = ({ childr
       </Sider>
       <Layout>
         <Header>Авторы</Header>
-        <Content>
-          <Authors />
-        </Content>
+        <Content>{/* <Authors /> */}</Content>
         {/* <Footer>Footer</Footer> */}
       </Layout>
     </Layout>
