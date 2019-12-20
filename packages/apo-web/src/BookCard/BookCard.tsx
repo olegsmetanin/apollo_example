@@ -8,6 +8,7 @@ import Col from 'antd/es/col'
 import Row from 'antd/es/row'
 import { useQuery } from '@apollo/react-hooks'
 import { Link } from 'react-router-dom'
+import { CommentList } from '../CommentList/CommentList'
 
 // import { IAuthorData, AuthorVars, GET_AUTHOR } from '../queries/author'
 // import { Link } from 'react-router-dom'
@@ -41,6 +42,7 @@ export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ..
             <div>
               Author: <Link to={`/author/${author_id}`}>{author.name}</Link>
             </div>
+            <CommentList byBookId={Number(id)} />
           </div>
         </div>
       </Col>

@@ -27,7 +27,6 @@ export const AuthorList: React.FunctionComponent<IAuthorListProps> = ({ children
           // loadMore={loadMore}
           dataSource={data?.authors}
           renderItem={(item: IAuthor) => {
-            console.log({ item })
             return (
               <List.Item
                 actions={[

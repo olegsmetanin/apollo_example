@@ -6,6 +6,7 @@ import Col from 'antd/es/col'
 import Row from 'antd/es/row'
 
 import './author.css'
+import { BookList } from '../BookList'
 
 export interface IAuthorCardProps {
   className?: string
@@ -33,6 +34,7 @@ export const AuthorCard: React.FunctionComponent<IAuthorCardProps> = ({ children
           <div className="card--right-block">
             <h1>{name}</h1>
             <div>Books: </div>
+            <BookList byAuthorId={Number(id)} />
           </div>
         </div>
       </Col>
