@@ -21,7 +21,12 @@ export const GET_BOOK = gql`
   query Book($id: ID!) {
     book(id: $id) {
       id
-      author
+      author {
+        id
+        name
+        img
+      }
+      author_id
       title
       img
     }
