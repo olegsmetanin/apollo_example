@@ -4,10 +4,9 @@ import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './App.css'
 
-import { MainPage } from './pages/MainPage'
 import { BookListPage } from './pages/BookListPage'
 import { BookPage } from './pages/BookPage'
-import { AuthorsPage } from './pages/AuthorsPage'
+import { AuthorListPage } from './pages/AuthorListPage'
 
 const client = new ApolloClient({ uri: 'http://localhost:4000' })
 
@@ -16,7 +15,6 @@ const App: React.FC = () => {
     <ApolloProvider client={client}>
       <Router>
         <Route exact path="/">
-          {/* <MainPage />  - удалитьс стр?*/}
           <Redirect to="/books" />
         </Route>
         <Route exact path="/books">
@@ -24,7 +22,7 @@ const App: React.FC = () => {
         </Route>
         <Route path="/book/:id" component={BookPage} />
         <Route exact path="/authors">
-          <AuthorsPage />
+          <AuthorListPage />
         </Route>
       </Router>
     </ApolloProvider>

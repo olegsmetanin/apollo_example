@@ -5,12 +5,13 @@ import { List, Skeleton } from 'antd'
 import { useQuery } from '@apollo/react-hooks'
 
 import { AuthorData, AuthorVars, GET_AUTHORS } from '../queries/authors'
+import { IAuthor } from '../queries/author'
 
-export interface IAuthorsProps {
+export interface IAuthorListProps {
   className?: string
 }
 
-export const Authors: React.FunctionComponent<IAuthorsProps> = ({ children, ...props }) => {
+export const AuthorList: React.FunctionComponent<IAuthorListProps> = ({ children, ...props }) => {
   const { loading, data } = useQuery<AuthorData, AuthorVars>(GET_AUTHORS)
 
   console.log({ loading, data })

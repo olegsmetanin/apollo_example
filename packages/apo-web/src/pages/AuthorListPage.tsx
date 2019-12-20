@@ -1,18 +1,21 @@
 import * as React from 'react'
 import Layout from 'antd/es/layout'
 import { NavLink } from 'react-router-dom'
-import { Authors } from '../Authors'
+import { AuthorList } from '../AuthorList'
 import { SideNav } from '../common/SideNav'
 import { Header } from '../common/Header'
 import { Breadcrumbs } from '../common/Breadcrumbs'
 
-const { Footer, Sider, Content } = Layout
+const { /* Footer */ Sider, Content } = Layout
 
-export interface IAuthorsPageProps {
+export interface IAuthorListPageProps {
   className?: string
 }
 
-export const AuthorsPage: React.FunctionComponent<IAuthorsPageProps> = ({ children, ...props }) => {
+export const AuthorListPage: React.FunctionComponent<IAuthorListPageProps> = ({
+  children,
+  ...props
+}) => {
   return (
     <Layout>
       <Header className="header" />
@@ -26,7 +29,7 @@ export const AuthorsPage: React.FunctionComponent<IAuthorsPageProps> = ({ childr
             <>Авторы</>
           </Breadcrumbs>
           <Content className="content">
-            <Authors />
+            <AuthorList />
           </Content>
           {/* <Footer>Footer</Footer> */}
         </Layout>
