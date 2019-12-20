@@ -29,6 +29,7 @@ export const GET_BOOK = gql`
       }
       author_id
       title
+      description
       img
     }
   }

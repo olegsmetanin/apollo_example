@@ -5,10 +5,10 @@ import * as React from 'react'
 import { BookVars, GET_BOOK, IBookData } from '../queries/book'
 
 import Col from 'antd/es/col'
+import { CommentList } from '../CommentList/CommentList'
+import { Link } from 'react-router-dom'
 import Row from 'antd/es/row'
 import { useQuery } from '@apollo/react-hooks'
-import { Link } from 'react-router-dom'
-import { CommentList } from '../CommentList/CommentList'
 
 export interface IBookCardProps {
   className?: string
@@ -24,7 +24,7 @@ export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ..
   if (!data) {
     return <div className="loading">Loading</div>
   }
-  const { author_id, title, img, author } = data.book
+  const { author_id, title, description, img, author } = data.book
 
   return (
     <Row>
@@ -32,6 +32,9 @@ export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ..
         <div className="card">
           <div className="card--left-block">
             <img src={img} width="320" alt="" />
+            <div>
+              {description}
+            </div>
           </div>
           <div className="card--right-block">
             <h1>{title}</h1>
