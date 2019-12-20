@@ -10,9 +10,6 @@ import { useQuery } from '@apollo/react-hooks'
 import { Link } from 'react-router-dom'
 import { CommentList } from '../CommentList/CommentList'
 
-// import { IAuthorData, AuthorVars, GET_AUTHOR } from '../queries/author'
-// import { Link } from 'react-router-dom'
-
 export interface IBookCardProps {
   className?: string
   id?: string
@@ -28,7 +25,6 @@ export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ..
     return <div className="loading">Loading</div>
   }
   const { author_id, title, img, author } = data.book
-  console.log({ loading, data })
 
   return (
     <Row>

@@ -22,8 +22,6 @@ export const CommentList: React.FunctionComponent<ICommentListProps> = ({
     variables: { book_id: byBookId }
   })
 
-  console.log({ loading, data })
-
   return (
     <List
       className="comment-list"
@@ -37,7 +35,6 @@ export const CommentList: React.FunctionComponent<ICommentListProps> = ({
             author="Guest"
             avatar="https://cdn.icon-icons.com/icons2/602/PNG/512/Guest_icon-icons.com_55899.png"
             content={<p>{item?.content}</p>}
-            // datetime={item.datetime}
           />
         </li>
       )}

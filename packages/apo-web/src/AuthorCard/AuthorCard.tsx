@@ -22,8 +22,6 @@ export const AuthorCard: React.FunctionComponent<IAuthorCardProps> = ({ children
   }
   const { name, img } = data.author
 
-  console.log({ loading, data })
-
   return (
     <Row>
       <Col>

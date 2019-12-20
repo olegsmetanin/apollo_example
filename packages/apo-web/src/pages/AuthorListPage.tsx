@@ -6,7 +6,7 @@ import { SideNav } from '../common/SideNav'
 import { Header } from '../common/Header'
 import { Breadcrumbs } from '../common/Breadcrumbs'
 
-const { /* Footer */ Sider, Content } = Layout
+const { Sider, Content } = Layout
 
 export interface IAuthorListPageProps {
   className?: string
@@ -31,7 +31,6 @@ export const AuthorListPage: React.FunctionComponent<IAuthorListPageProps> = ({
           <Content className="content">
             <AuthorList />
           </Content>
-          {/* <Footer>Footer</Footer> */}
         </Layout>
       </Layout>
     </Layout>
