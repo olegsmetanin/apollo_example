@@ -13,7 +13,7 @@ export const Header: React.FunctionComponent<IHeaderProps> = ({ className }) => 
       <Menu.Item>
         <NavLink to="/">
           <Icon type="book" />
-          Библиотека
+          Library
         </NavLink>
       </Menu.Item>
     </Menu>

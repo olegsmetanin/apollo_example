@@ -30,7 +30,7 @@ export const Author: React.FunctionComponent<IAuthorProps> = ({ children, ...pro
           </div>
           <div className="card--right-block">
             <h1>{name}</h1>
-            <div>Книги: </div>
+            <div>Books: </div>
           </div>
         </div>
       </Col>
