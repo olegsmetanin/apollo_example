@@ -1,7 +1,7 @@
 import React from 'react'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './App.css'
 
 import { MainPage } from './pages/MainPage'
@@ -16,7 +16,8 @@ const App: React.FC = () => {
     <ApolloProvider client={client}>
       <Router>
         <Route exact path="/">
-          <MainPage />
+          {/* <MainPage />  - удалитьс стр?*/}
+          <Redirect to="/books" />
         </Route>
         <Route exact path="/books">
           <BookListPage />

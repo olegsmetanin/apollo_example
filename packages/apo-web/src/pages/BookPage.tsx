@@ -1,10 +1,14 @@
 import * as React from 'react'
 import Layout from 'antd/es/layout'
 import { BookCard } from '../BookCard'
+import { NavLink } from 'react-router-dom'
 import { SideNav } from '../common/SideNav'
+import { Header } from '../common/Header'
+import { Breadcrumbs } from '../common/Breadcrumbs'
+
 import get from 'lodash/get'
 
-const { Header, Footer, Sider, Content } = Layout
+const { Footer, Sider, Content } = Layout
 
 export interface IBooksPageProps {
   className?: string
@@ -15,15 +19,21 @@ export const BookPage: React.FunctionComponent<IBooksPageProps> = ({ children, .
 
   return (
     <Layout>
-      <Sider breakpoint="lg" collapsedWidth="0">
-        <SideNav />
-      </Sider>
+      <Header className="header" />
       <Layout>
-        <Header>Книга {id}</Header>
-        <Content>
-          <BookCard id={id} />
-        </Content>
-        {/* <Footer>Footer</Footer> */}
+        <Sider breakpoint="lg" collapsedWidth="0" className="sider">
+          <SideNav />
+        </Sider>
+        <Layout className="layout">
+          <Breadcrumbs>
+            <NavLink to="/">Библиотека</NavLink>
+            <NavLink to="/books">Книги</NavLink>
+            <>Книга {id}</>
+          </Breadcrumbs>
+          <Content className="content">
+            <BookCard id={id} />
+          </Content>
+        </Layout>
       </Layout>
     </Layout>
   )

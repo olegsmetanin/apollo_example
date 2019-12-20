@@ -1,12 +1,11 @@
-import './author.css'
-
 import * as React from 'react'
-
+import { useQuery } from '@apollo/react-hooks'
 import { AuthorVars, GET_AUTHOR, IAuthor, IAuthorData } from '../queries/author'
 
 import Col from 'antd/es/col'
 import Row from 'antd/es/row'
-import { useQuery } from '@apollo/react-hooks'
+
+import './author.css'
 
 export interface IAuthorProps {
   className?: string
@@ -17,6 +16,7 @@ export const Author: React.FunctionComponent<IAuthorProps> = ({ children, ...pro
   const { id } = props
 
   const { loading, data } = useQuery<IAuthorData, AuthorVars>(GET_AUTHOR, { variables: { id } })
+  if (!data) return <div className="loading">Loading</div>
   const { name, img } = data?.author as IAuthor
 
   console.log({ loading, data })

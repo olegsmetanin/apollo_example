@@ -23,7 +23,7 @@ export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ..
     variables: { id: String(id) }
   })
   if (!data) {
-    return <div className="loading"></div>
+    return <div className="loading">Loading</div>
   }
   const { title, img } = data?.book as IBook
   console.log({ loading, data })

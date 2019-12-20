@@ -1,7 +1,8 @@
 import * as React from 'react'
-import Row from 'antd/es/row'
+
+import { Avatar, List, Skeleton, Row } from 'antd'
+
 import Col from 'antd/es/col'
-import { List, Avatar, Skeleton } from 'antd'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
 
