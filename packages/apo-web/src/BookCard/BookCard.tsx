@@ -18,7 +18,7 @@ export interface IBookCardProps {
 export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ...props }) => {
   const { id } = props
 
-  const { loading, data } = useQuery<IBookData, BookVars>(GET_BOOK, {
+  const { data } = useQuery<IBookData, BookVars>(GET_BOOK, {
     variables: { id: String(id) }
   })
   if (!data) {

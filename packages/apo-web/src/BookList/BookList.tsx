@@ -1,9 +1,8 @@
 import * as React from 'react'
 
-import { Avatar, List, Row, Skeleton } from 'antd'
+import { Avatar, List, Skeleton } from 'antd'
 import { BookListData, BookListVars, GET_AUTHOR_BOOK_LIST, GET_BOOK_LIST } from '../queries/books'
 
-import Col from 'antd/es/col'
 import { IBook } from '../queries/book'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'

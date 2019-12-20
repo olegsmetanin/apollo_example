@@ -8,7 +8,7 @@ import { Breadcrumbs } from '../common/Breadcrumbs'
 
 import get from 'lodash/get'
 
-const { Footer, Sider, Content } = Layout
+const { Sider, Content } = Layout
 
 export interface IBookPageProps {
   className?: string

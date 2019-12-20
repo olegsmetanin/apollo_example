@@ -1,14 +1,13 @@
 import * as React from 'react'
 import Layout from 'antd/es/layout'
 import { NavLink } from 'react-router-dom'
-import Breadcrumb from 'antd/es/breadcrumb'
 import { BookList } from '../BookList'
 import { SideNav } from '../common/SideNav'
 import { Header } from '../common/Header'
 import { Breadcrumbs } from '../common/Breadcrumbs'
 import { Col, Row } from 'antd'
 
-const { Footer, Sider, Content } = Layout
+const { Sider, Content } = Layout
 
 export interface IBooksPageProps {
   className?: string

@@ -1,12 +1,8 @@
 import * as React from 'react'
-import Row from 'antd/es/row'
-import Col from 'antd/es/col'
-import { List, Comment, Skeleton, Avatar } from 'antd'
+import { List, Comment } from 'antd'
 import { useQuery } from '@apollo/react-hooks'
 
 import { ICommentListData, ICommentListVars, GET_BOOK_COMMENTS } from '../queries/comments'
-import { IComment } from '../queries/comment'
-import { Link } from 'react-router-dom'
 
 export interface ICommentListProps {
   className?: string
@@ -18,7 +14,7 @@ export const CommentList: React.FunctionComponent<ICommentListProps> = ({
   byBookId,
   ...props
 }) => {
-  const { loading, data } = useQuery<ICommentListData, ICommentListVars>(GET_BOOK_COMMENTS, {
+  const { data } = useQuery<ICommentListData, ICommentListVars>(GET_BOOK_COMMENTS, {
     variables: { book_id: byBookId }
   })
 
