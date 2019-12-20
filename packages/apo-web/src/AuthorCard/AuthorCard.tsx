@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { AuthorVars, GET_AUTHOR, IAuthor, IAuthorData } from '../queries/author'
+import { AuthorVars, GET_AUTHOR, IAuthorData } from '../queries/author'
 
 import Col from 'antd/es/col'
 import Row from 'antd/es/row'
@@ -16,7 +16,7 @@ export interface IAuthorCardProps {
 export const AuthorCard: React.FunctionComponent<IAuthorCardProps> = ({ children, ...props }) => {
   const { id } = props
 
-  const { loading, data } = useQuery<IAuthorData, AuthorVars>(GET_AUTHOR, { variables: { id } })
+  const { data } = useQuery<IAuthorData, AuthorVars>(GET_AUTHOR, { variables: { id } })
   if (!data) {
     return <div className="loading">Loading</div>
   }
