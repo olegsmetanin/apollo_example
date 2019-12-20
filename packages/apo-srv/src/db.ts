@@ -5,6 +5,7 @@ for (var i = 0; i < 100; i++) {
   authors.push({
     id: i,
     name: faker.name.findName(),
+    description: faker.lorem.sentence(faker.random.number({min: 50, max: 100})),
     img: faker.internet.avatar()
   })
 }
