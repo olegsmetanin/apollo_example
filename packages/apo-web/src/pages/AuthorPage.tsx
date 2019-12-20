@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Layout from 'antd/es/layout'
-import { BookCard } from '../BookCard'
+import { AuthorCard } from '../AuthorCard'
 import { NavLink } from 'react-router-dom'
 import { SideNav } from '../common/SideNav'
 import { Header } from '../common/Header'
@@ -10,11 +10,11 @@ import get from 'lodash/get'
 
 const { Footer, Sider, Content } = Layout
 
-export interface IBookPageProps {
+export interface IAuthorPageProps {
   className?: string
 }
 
-export const BookPage: React.FunctionComponent<IBookPageProps> = ({ children, ...props }) => {
+export const AuthorPage: React.FunctionComponent<IAuthorPageProps> = ({ children, ...props }) => {
   const id = get(props, 'match.params.id')
 
   return (
@@ -27,11 +27,11 @@ export const BookPage: React.FunctionComponent<IBookPageProps> = ({ children, ..
         <Layout className="layout">
           <Breadcrumbs>
             <NavLink to="/">Library</NavLink>
-            <NavLink to="/books">Books</NavLink>
-            <>Book {id}</>
+            <NavLink to="/authors">Authors</NavLink>
+            <>Author {id}</>
           </Breadcrumbs>
           <Content className="content">
-            <BookCard id={id} />
+            <AuthorCard id={id} />
           </Content>
         </Layout>
       </Layout>
