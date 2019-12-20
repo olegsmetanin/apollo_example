@@ -7,6 +7,7 @@ import { BookVars, GET_BOOK, IBook, IBookData } from '../queries/book'
 import Col from 'antd/es/col'
 import Row from 'antd/es/row'
 import { useQuery } from '@apollo/react-hooks'
+import { Link } from 'react-router-dom'
 
 // import { IAuthorData, AuthorVars, GET_AUTHOR } from '../queries/author'
 // import { Link } from 'react-router-dom'
@@ -25,7 +26,7 @@ export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ..
   if (!data) {
     return <div className="loading">Loading</div>
   }
-  const { title, img } = data?.book as IBook
+  const { author_id, title, img, author } = data.book
   console.log({ loading, data })
 
   return (
@@ -37,7 +38,9 @@ export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ..
           </div>
           <div className="card--right-block">
             <h1>{title}</h1>
-            <div>{/* Автор: <Link to={`/author/${author_id}`}>{author.name}</Link> */}</div>
+            <div>
+              Author: <Link to={`/author/${author_id}`}>{author.name}</Link>
+            </div>
           </div>
         </div>
       </Col>

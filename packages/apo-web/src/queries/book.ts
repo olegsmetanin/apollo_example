@@ -3,14 +3,14 @@ import { IAuthor } from './author'
 
 export interface IBook {
   id: number
-  // author_id: number
+  author_id: number
   author: IAuthor
   title: string
   img: string
 }
 
 export interface IBookData {
-  book?: IBook
+  book: IBook
 }
 
 export interface BookVars {
