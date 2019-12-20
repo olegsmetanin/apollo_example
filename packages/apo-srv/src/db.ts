@@ -4,9 +4,10 @@ export var books = []
 for (var i = 0; i < 100; i++) {
   books.push({
     id: i,
-    title: faker.lorem.sentence(),
+    title: faker.lorem.slug(),
+    description: faker.lorem.sentence(faker.random.number({min: 50, max: 100})),
     author_id: faker.random.number(100),
-    img: faker.image.abstract()
+    img: faker.image.imageUrl()
   })
 }
 

@@ -1,13 +1,12 @@
 import * as React from 'react'
 
-import { Avatar, List, Skeleton, Row } from 'antd'
+import { Avatar, List, Row, Skeleton } from 'antd'
+import { BookListData, BookListVars, GET_BOOK_LIST } from '../queries/books'
 
 import Col from 'antd/es/col'
+import { IBook } from '../queries/book'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
-
-import { BookListData, BookListVars, GET_BOOK_LIST } from '../queries/books'
-import { IBook } from '../queries/book'
 
 export interface IBookListProps {
   className?: string
@@ -33,11 +32,10 @@ export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ..
               <List.Item>
                 <Skeleton avatar title={false} loading={loading} active>
                   <List.Item.Meta
-                    avatar={item?.img ? <Avatar src={item.img} /> : null}
+                    avatar={item?.img ? <Avatar shape="square" size="large" src={item.img} /> : null}
                     title={<Link to={`/book/${item.id}`}>{item.title}</Link>}
-                    description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                    description={item.description}
                   />
-                  <div>content</div>
                 </Skeleton>
               </List.Item>
             )

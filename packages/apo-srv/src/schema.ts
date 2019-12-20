@@ -13,6 +13,7 @@ export const schema = `
     author_id: ID!
     author: Author
     title: String
+    description: String
     img: String
   }
 

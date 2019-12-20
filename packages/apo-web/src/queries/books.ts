@@ -1,5 +1,5 @@
-import gql from 'graphql-tag'
 import { IBook } from './book'
+import gql from 'graphql-tag'
 
 export interface BookListData {
   books: IBook[]
@@ -14,6 +14,7 @@ export const GET_BOOK_LIST = gql`
     books(page: 1) {
       id
       title
+      description
       img
     }
   }

@@ -1,11 +1,12 @@
-import gql from 'graphql-tag'
 import { IAuthor } from './author'
+import gql from 'graphql-tag'
 
 export interface IBook {
   id: number
   author_id: number
   author: IAuthor
   title: string
+  description: string
   img: string
 }
 
