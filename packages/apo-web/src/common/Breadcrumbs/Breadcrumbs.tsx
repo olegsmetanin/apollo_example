@@ -8,7 +8,6 @@ export interface IBreadcrumbsProps {
 }
 
 export const Breadcrumbs: React.FunctionComponent<IBreadcrumbsProps> = ({ children }) => {
-  console.log({ children })
   return (
     <Breadcrumb className="breadcrumb">
       {children &&

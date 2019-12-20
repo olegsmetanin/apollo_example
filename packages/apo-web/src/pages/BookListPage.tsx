@@ -34,7 +34,6 @@ export const BookListPage: React.FunctionComponent<IBooksPageProps> = ({ childre
               </Col>
             </Row>
           </Content>
-          {/* <Footer>Footer</Footer> */}
         </Layout>
       </Layout>
     </Layout>

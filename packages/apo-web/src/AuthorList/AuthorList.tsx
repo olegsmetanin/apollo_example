@@ -16,8 +16,6 @@ export interface IAuthorListProps {
 export const AuthorList: React.FunctionComponent<IAuthorListProps> = ({ children, ...props }) => {
   const { loading, data } = useQuery<AuthorData, AuthorVars>(GET_AUTHORS)
 
-  console.log({ loading, data })
-
   return (
     <Row>
       <Col>
@@ -25,7 +23,6 @@ export const AuthorList: React.FunctionComponent<IAuthorListProps> = ({ children
           className="books-loadmore-list"
           loading={loading}
           itemLayout="horizontal"
-          // loadMore={loadMore}
           dataSource={data?.authors}
           renderItem={(item: IAuthor) => {
             return (

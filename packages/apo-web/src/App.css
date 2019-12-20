@@ -1,6 +1,3 @@
-/* @import '~antd/dist/antd.less'; */
-/* @import 'your-theme-file.less'; // variables to override above */
-
 @import '~antd/dist/antd.css';
 
 a.selected {
