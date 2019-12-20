@@ -31,6 +31,12 @@ export const GET_AUTHOR_BOOK_LIST = gql`
     books(author_id: $author_id) {
       id
       title
+      description
+      author_id
+      author {
+        id
+        name
+      }
       img
     }
   }

@@ -35,7 +35,7 @@ export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ..
       <Col>
         <div className="card">
           <div className="card--left-block">
-            <img src={img} width="480" height={640} alt="" />
+            <img src={img} width="320" alt="" />
           </div>
           <div className="card--right-block">
             <h1>{title}</h1>
