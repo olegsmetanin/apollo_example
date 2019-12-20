@@ -6,6 +6,7 @@ import { BookList } from '../BookList'
 import { SideNav } from '../common/SideNav'
 import { Header } from '../common/Header'
 import { Breadcrumbs } from '../common/Breadcrumbs'
+import { Col, Row } from 'antd'
 
 const { Footer, Sider, Content } = Layout
 
@@ -27,7 +28,11 @@ export const BookListPage: React.FunctionComponent<IBooksPageProps> = ({ childre
             <>Книги</>
           </Breadcrumbs>
           <Content className="content">
-            <BookList />
+            <Row>
+              <Col>
+                <BookList />
+              </Col>
+            </Row>
           </Content>
           {/* <Footer>Footer</Footer> */}
         </Layout>

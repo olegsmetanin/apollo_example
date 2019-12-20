@@ -6,45 +6,48 @@ import Col from 'antd/es/col'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
 
-import { BookListData, BookListVars, GET_BOOK_LIST } from '../queries/books'
+import { BookListData, BookListVars, GET_BOOK_LIST, GET_AUTHOR_BOOK_LIST } from '../queries/books'
 import { IBook } from '../queries/book'
 
 export interface IBookListProps {
   className?: string
+  byAuthorId?: number
 }
 
-export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ...props }) => {
-  const { loading, data } = useQuery<BookListData, BookListVars>(GET_BOOK_LIST)
+export const BookList: React.FunctionComponent<IBookListProps> = ({
+  children,
+  byAuthorId,
+  ...props
+}) => {
+  const { loading, data } = useQuery<BookListData, BookListVars>(
+    byAuthorId !== undefined ? GET_AUTHOR_BOOK_LIST : GET_BOOK_LIST,
+    byAuthorId !== undefined ? { variables: { author_id: byAuthorId } } : undefined
+  )
 
   console.log({ loading, data })
 
   return (
-    <Row>
-      <Col>
-        <List
-          className="books-loadmore-list"
-          loading={loading}
-          itemLayout="horizontal"
-          // loadMore={loadMore}
-          dataSource={data?.books}
-          renderItem={(item: IBook) => {
-            console.log({ item })
-            return (
-              <List.Item>
-                <Skeleton avatar title={false} loading={loading} active>
-                  <List.Item.Meta
-                    avatar={item?.img ? <Avatar src={item.img} /> : null}
-                    title={<Link to={`/book/${item.id}`}>{item.title}</Link>}
-                    description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                  />
-                  <div>content</div>
-                </Skeleton>
-              </List.Item>
-            )
-          }}
-        />
-      </Col>
-    </Row>
+    <List
+      className="books-loadmore-list"
+      loading={loading}
+      itemLayout="horizontal"
+      // loadMore={loadMore}
+      dataSource={data?.books}
+      renderItem={(item: IBook) => {
+        return (
+          <List.Item>
+            <Skeleton avatar title={false} loading={loading} active>
+              <List.Item.Meta
+                avatar={item?.img ? <Avatar src={item.img} /> : null}
+                title={<Link to={`/book/${item.id}`}>{item.title}</Link>}
+                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+              />
+              <div>content</div>
+            </Skeleton>
+          </List.Item>
+        )
+      }}
+    />
   )
 }
 
