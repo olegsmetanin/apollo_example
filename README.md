@@ -20,3 +20,14 @@ yarn apo-srv:start
 open http://localhost:3000 for web app
 
 open http://localhost:4000 for graphql console
+
+Screenshots:
+
+![Authors](screens/authors.png)
+
+![Author](screens/author.png)
+
+![Books](screens/books.png)
+
+![Book](screens/book.png)
+
