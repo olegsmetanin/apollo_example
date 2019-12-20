@@ -15,6 +15,11 @@ export const GET_BOOK_LIST = gql`
       id
       title
       description
+      author_id
+      author {
+        id
+        name
+      }
       img
     }
   }

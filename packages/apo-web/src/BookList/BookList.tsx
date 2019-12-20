@@ -33,7 +33,7 @@ export const BookList: React.FunctionComponent<IBookListProps> = ({ children, ..
                 <Skeleton avatar title={false} loading={loading} active>
                   <List.Item.Meta
                     avatar={item?.img ? <Avatar shape="square" size="large" src={item.img} /> : null}
-                    title={<Link to={`/book/${item.id}`}>{item.title}</Link>}
+                    title={<span><Link to={`/book/${item.id}`}>{item.title}</Link> by <Link to={`/author/${item.author.id}`}>{item.author.name}</Link></span>}
                     description={item.description}
                   />
                 </Skeleton>

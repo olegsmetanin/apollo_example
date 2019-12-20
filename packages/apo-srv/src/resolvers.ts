@@ -8,6 +8,7 @@ export const resolvers = {
       if (author_id) {
         return filter(books, book => book.author_id == author_id)
       }
+      console.log('books', books)
       return books
     },
     book: (_, { id }) => filter(books, book => book.id == id)[0],

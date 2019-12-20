@@ -1,22 +1,24 @@
 import * as faker from 'faker/locale/en'
 
-export var books = []
-for (var i = 0; i < 100; i++) {
-  books.push({
-    id: i,
-    title: faker.lorem.slug(),
-    description: faker.lorem.sentence(faker.random.number({min: 50, max: 100})),
-    author_id: faker.random.number(100),
-    img: faker.image.imageUrl()
-  })
-}
-
 export var authors = []
 for (var i = 0; i < 100; i++) {
   authors.push({
     id: i,
     name: faker.name.findName(),
     img: faker.internet.avatar()
+  })
+}
+
+export var books = []
+for (var i = 0; i < 100; i++) {
+  const author_id = Math.floor(Math.random()*100)
+  books.push({
+    id: i,
+    title: faker.lorem.slug(),
+    description: faker.lorem.sentence(faker.random.number({min: 50, max: 100})),
+    author_id,
+    author: authors[author_id],
+    img: faker.image.imageUrl()
   })
 }
 
@@ -29,9 +31,6 @@ for (var i = 0; i < 100; i++) {
   })
 }
 
-books.forEach(book => {
-  book.author = authors[book.author_id]
-})
 
 // console.log(books)
 // console.log(authors)
