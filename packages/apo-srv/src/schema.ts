@@ -28,6 +28,7 @@ export const schema = `
     id: ID!
     book_id: ID!
     content: String
+    img: String
   }
 
 `

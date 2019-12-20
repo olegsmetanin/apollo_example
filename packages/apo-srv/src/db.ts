@@ -24,10 +24,11 @@ for (var i = 0; i < 100; i++) {
 }
 
 export var comments = []
-for (var i = 0; i < 100; i++) {
+for (var i = 0; i < 1000; i++) {
   comments.push({
     id: i,
     book_id: faker.random.number(100),
-    content: faker.lorem.text()
+    content: faker.lorem.text(),
+    img: faker.internet.avatar()
   })
 }

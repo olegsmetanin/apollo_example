@@ -1,5 +1,5 @@
-import gql from 'graphql-tag'
 import { IComment } from './comment'
+import gql from 'graphql-tag'
 
 export interface ICommentListData {
   comments: IComment[]
@@ -16,6 +16,7 @@ export const GET_BOOK_COMMENTS = gql`
       id
       book_id
       content
+      img
     }
   }
 `
