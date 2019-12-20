@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 export interface IAuthor {
   id: number
   name: string
+  description: string
   img: string
 }
 

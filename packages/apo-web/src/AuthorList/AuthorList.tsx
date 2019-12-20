@@ -1,12 +1,13 @@
 import * as React from 'react'
-import Row from 'antd/es/row'
-import Col from 'antd/es/col'
-import { List, Skeleton, Avatar } from 'antd'
-import { useQuery } from '@apollo/react-hooks'
 
 import { AuthorData, AuthorVars, GET_AUTHORS } from '../queries/authors'
+import { Avatar, List, Skeleton } from 'antd'
+
+import Col from 'antd/es/col'
 import { IAuthor } from '../queries/author'
 import { Link } from 'react-router-dom'
+import Row from 'antd/es/row'
+import { useQuery } from '@apollo/react-hooks'
 
 export interface IAuthorListProps {
   className?: string
@@ -30,15 +31,13 @@ export const AuthorList: React.FunctionComponent<IAuthorListProps> = ({ children
             return (
               <List.Item
                 actions={[
-                  <a key="list-loadmore-edit">edit</a>,
-                  <a key="list-loadmore-more">more</a>
                 ]}
               >
                 <Skeleton avatar title={false} loading={loading} active>
                   <List.Item.Meta
                     avatar={item?.img ? <Avatar src={item.img} /> : null}
                     title={<Link to={`/author/${item.id}`}>{item.name}</Link>}
-                    description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                    description={item.description}
                   />
                 </Skeleton>
               </List.Item>

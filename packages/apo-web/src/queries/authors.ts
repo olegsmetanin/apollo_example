@@ -1,5 +1,5 @@
-import gql from 'graphql-tag'
 import { IAuthor } from './author'
+import gql from 'graphql-tag'
 
 export interface AuthorData {
   authors: IAuthor[]
@@ -14,6 +14,7 @@ export const GET_AUTHORS = gql`
     authors(page: 1) {
       id
       name
+      description
       img
     }
   }
