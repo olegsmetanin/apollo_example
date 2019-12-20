@@ -2,7 +2,7 @@ import './book.css'
 
 import * as React from 'react'
 
-import { BookVars, GET_BOOK, IBook, IBookData } from '../queries/book'
+import { BookVars, GET_BOOK, IBookData } from '../queries/book'
 
 import Col from 'antd/es/col'
 import Row from 'antd/es/row'
@@ -34,7 +34,7 @@ export const BookCard: React.FunctionComponent<IBookCardProps> = ({ children, ..
       <Col>
         <div className="card">
           <div className="card--left-block">
-            <img src={img} width="480" height={640} />
+            <img src={img} width="480" height={640} alt="" />
           </div>
           <div className="card--right-block">
             <h1>{title}</h1>

@@ -25,7 +25,7 @@ export const AuthorListPage: React.FunctionComponent<IAuthorListPageProps> = ({
         </Sider>
         <Layout className="layout">
           <Breadcrumbs>
-            <NavLink to="/">Библиотека</NavLink>
+            <NavLink to="/authors">Библиотека</NavLink>
             <>Авторы</>
           </Breadcrumbs>
           <Content className="content">

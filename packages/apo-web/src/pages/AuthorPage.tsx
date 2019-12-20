@@ -1,19 +1,22 @@
 import * as React from 'react'
 import Layout from 'antd/es/layout'
+import { AuthorCard } from '../AuthorCard'
 import { NavLink } from 'react-router-dom'
-import Breadcrumb from 'antd/es/breadcrumb'
-import { BookList } from '../BookList'
 import { SideNav } from '../common/SideNav'
 import { Header } from '../common/Header'
 import { Breadcrumbs } from '../common/Breadcrumbs'
 
+import get from 'lodash/get'
+
 const { Footer, Sider, Content } = Layout
 
-export interface IBooksPageProps {
+export interface IAuthorPageProps {
   className?: string
 }
 
-export const BookListPage: React.FunctionComponent<IBooksPageProps> = ({ children, ...props }) => {
+export const AuthorPage: React.FunctionComponent<IAuthorPageProps> = ({ children, ...props }) => {
+  const id = get(props, 'match.params.id')
+
   return (
     <Layout>
       <Header className="header" />
@@ -23,13 +26,13 @@ export const BookListPage: React.FunctionComponent<IBooksPageProps> = ({ childre
         </Sider>
         <Layout className="layout">
           <Breadcrumbs>
-            <NavLink to="/books">Библиотека</NavLink>
-            <>Книги</>
+            <NavLink to="/">Библиотека</NavLink>
+            <NavLink to="/authors">Авторы</NavLink>
+            <>Автор {id}</>
           </Breadcrumbs>
           <Content className="content">
-            <BookList />
+            <AuthorCard id={id} />
           </Content>
-          {/* <Footer>Footer</Footer> */}
         </Layout>
       </Layout>
     </Layout>

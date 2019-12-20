@@ -6,6 +6,7 @@ import './App.css'
 
 import { BookListPage } from './pages/BookListPage'
 import { BookPage } from './pages/BookPage'
+import { AuthorPage } from './pages/AuthorPage'
 import { AuthorListPage } from './pages/AuthorListPage'
 
 const client = new ApolloClient({ uri: 'http://localhost:4000' })
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Route exact path="/authors">
           <AuthorListPage />
         </Route>
+        <Route path="/author/:id" component={AuthorPage} />
       </Router>
     </ApolloProvider>
   )

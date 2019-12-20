@@ -10,11 +10,11 @@ import get from 'lodash/get'
 
 const { Footer, Sider, Content } = Layout
 
-export interface IBooksPageProps {
+export interface IBookPageProps {
   className?: string
 }
 
-export const BookPage: React.FunctionComponent<IBooksPageProps> = ({ children, ...props }) => {
+export const BookPage: React.FunctionComponent<IBookPageProps> = ({ children, ...props }) => {
   const id = get(props, 'match.params.id')
 
   return (
