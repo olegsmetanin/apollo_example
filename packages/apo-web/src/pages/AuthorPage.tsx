@@ -26,9 +26,9 @@ export const AuthorPage: React.FunctionComponent<IAuthorPageProps> = ({ children
         </Sider>
         <Layout className="layout">
           <Breadcrumbs>
-            <NavLink to="/">Библиотека</NavLink>
-            <NavLink to="/authors">Авторы</NavLink>
-            <>Автор {id}</>
+            <NavLink to="/">Library</NavLink>
+            <NavLink to="/authors">Authors</NavLink>
+            <>Author {id}</>
           </Breadcrumbs>
           <Content className="content">
             <AuthorCard id={id} />

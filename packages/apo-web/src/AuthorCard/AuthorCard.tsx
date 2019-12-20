@@ -33,7 +33,7 @@ export const AuthorCard: React.FunctionComponent<IAuthorCardProps> = ({ children
           </div>
           <div className="card--right-block">
             <h1>{name}</h1>
-            <div>Книги: </div>
+            <div>Books: </div>
             <BookList byAuthorId={Number(id)} />
           </div>
         </div>

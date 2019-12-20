@@ -24,8 +24,8 @@ export const BookListPage: React.FunctionComponent<IBooksPageProps> = ({ childre
         </Sider>
         <Layout className="layout">
           <Breadcrumbs>
-            <NavLink to="/books">Библиотека</NavLink>
-            <>Книги</>
+            <NavLink to="/">Library</NavLink>
+            <>Books</>
           </Breadcrumbs>
           <Content className="content">
             <Row>
