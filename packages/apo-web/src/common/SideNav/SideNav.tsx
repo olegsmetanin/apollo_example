@@ -13,13 +13,13 @@ export const SideNav: React.FunctionComponent<ISideNavProps> = ({ children, ...p
       <Menu.Item key="1">
         <NavLink to="/books" className="nav-text" activeClassName="selected">
           <Icon type="book" />
-          Книги
+          Books
         </NavLink>
       </Menu.Item>
       <Menu.Item key="2">
         <NavLink to="/authors" className="nav-text" activeClassName="selected">
           <Icon type="user" />
-          Авторы
+          Authors
         </NavLink>
       </Menu.Item>
     </Menu>

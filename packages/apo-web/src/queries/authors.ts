@@ -14,6 +14,7 @@ export const GET_AUTHORS = gql`
     authors(page: 1) {
       id
       name
+      img
     }
   }
 `

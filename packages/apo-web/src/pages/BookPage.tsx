@@ -10,11 +10,11 @@ import get from 'lodash/get'
 
 const { Footer, Sider, Content } = Layout
 
-export interface IBooksPageProps {
+export interface IBookPageProps {
   className?: string
 }
 
-export const BookPage: React.FunctionComponent<IBooksPageProps> = ({ children, ...props }) => {
+export const BookPage: React.FunctionComponent<IBookPageProps> = ({ children, ...props }) => {
   const id = get(props, 'match.params.id')
 
   return (
@@ -26,9 +26,9 @@ export const BookPage: React.FunctionComponent<IBooksPageProps> = ({ children, .
         </Sider>
         <Layout className="layout">
           <Breadcrumbs>
-            <NavLink to="/">Библиотека</NavLink>
-            <NavLink to="/books">Книги</NavLink>
-            <>Книга {id}</>
+            <NavLink to="/">Library</NavLink>
+            <NavLink to="/books">Books</NavLink>
+            <>Book {id}</>
           </Breadcrumbs>
           <Content className="content">
             <BookCard id={id} />
